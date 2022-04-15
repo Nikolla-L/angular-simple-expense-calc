@@ -4,8 +4,9 @@
             <h1>Income</h1>
             <div *ngFor="let item of budgetItems">
                 <app-budget-item-card
-                    [isIncome]="true"
+                    [item]="item"
                     *ngIf="item.amount >= 0"
+                    (xButtonClick)="onDeleteButtonClick(item)"
                 ></app-budget-item-card>
             </div>
         </div>
@@ -13,8 +14,9 @@
             <h1>Expenses</h1>
             <div *ngFor="let item of budgetItems">
                 <app-budget-item-card
-                    [isIncome]="false"
+                    [item]="item"
                     *ngIf="item.amount < 0"
+                    (xButtonClick)="onDeleteButtonClick(item)"
                 ></app-budget-item-card>
             </div>
         </div>
